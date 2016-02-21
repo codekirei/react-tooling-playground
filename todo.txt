@@ -3,4 +3,7 @@
 - browser-sync
 - inject changes to css, html? without losing state
 - dist builds
+  - pass env=production to get correct react build
+  - tree shake with rollup
+  - uglify
 - portchecker (see my multispress experiment)

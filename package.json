@@ -1,10 +1,10 @@
 {
-  "name": "webpack-react",
+  "name": "react-tooling-playground",
   "version": "0.1.0",
   "description": "testing",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "not yet",
     "dev": "coffee bin/dev-server.coffee",
     "clean": "rimraf ./dist"
   },
