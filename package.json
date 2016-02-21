@@ -1,0 +1,26 @@
+{
+  "name": "webpack-react",
+  "version": "0.1.0",
+  "description": "testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "coffee bin/serve.coffee"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-loader": "^6.2.3",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "coffee-script": "^1.10.0",
+    "express": "^4.13.4",
+    "html-webpack-plugin": "^2.9.0",
+    "webpack": "^1.12.13",
+    "webpack-dev-middleware": "^1.5.1"
+  },
+  "dependencies": {
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7"
+  }
+}
