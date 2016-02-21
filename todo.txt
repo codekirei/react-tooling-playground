@@ -1,4 +1,5 @@
 - hot reloading
+- sourcemaps
 - browser-sync
 - inject changes to css, html? without losing state
 - dist builds

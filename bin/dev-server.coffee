@@ -5,7 +5,7 @@
 p = require 'path'
 express = require 'express'
 webpack = require 'webpack'
-memory = require 'webpack-dev-middleware'
+devMiddleware = require 'webpack-dev-middleware'
 # hot = require 'webpack-hot-middleware'
 
 # local
@@ -19,7 +19,7 @@ cwd = process.cwd()
 app = express()
 bundler = webpack conf.webpack
 
-app.use memory bundler, publicPath: '/'
+app.use devMiddleware bundler, conf.devMiddleware
 
 app.get '/', (req, res) ->
   res.sendFile p.join cwd, 'index.html'

@@ -5,9 +5,11 @@ html = require 'html-webpack-plugin'
 cwd = process.cwd()
 
 babelLoader =
-  test: /\.jsx?/
-  loaders: ['babel']
+  test: /\.jsx?$/
   include: p.join cwd, 'src', 'scripts'
+  loader: 'babel'
+  query:
+    presets: ['react', 'es2015']
 
 htmlOpts =
   template: p.join 'src', 'markup', 'index.html'
@@ -28,3 +30,6 @@ module.exports =
     , new webpack.NoErrorsPlugin()
     , new html(htmlOpts)
     ]
+  devMiddelware:
+    publicPath: '/'
+    noInfo: true
