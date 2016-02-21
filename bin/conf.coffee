@@ -1,35 +1,52 @@
-p = require 'path'
+# ----------------------------------------------------------
+# modules
+# ----------------------------------------------------------
+path = require 'path'
 webpack = require 'webpack'
-html = require 'html-webpack-plugin'
+htmlPlugin = require 'html-webpack-plugin'
 
+# ----------------------------------------------------------
+# shared vars
+# ----------------------------------------------------------
 cwd = process.cwd()
 
-babelLoader =
+# ----------------------------------------------------------
+# webpack
+# ----------------------------------------------------------
+# loaders
+babel =
   test: /\.jsx?$/
-  include: p.join cwd, 'src', 'scripts'
+  include: path.join cwd, 'src', 'scripts'
   loader: 'babel'
   query:
     presets: ['react', 'es2015']
 
-htmlOpts =
-  template: p.join 'src', 'markup', 'index.html'
-
-module.exports =
-  webpack:
-    devtool: 'cheap-module-eval-source-map'
-    entry: '.' + p.sep + p.join 'src', 'scripts', 'app.jsx'
-    output:
-      path: p.join cwd, 'dist'
-      filename: 'app.js'
-      publicPath: '/'
-    module:
-      loaders: [babelLoader]
-    plugins: [
-      new webpack.optimize.OccurenceOrderPlugin()
-    , new webpack.HotModuleReplacementPlugin()
-    , new webpack.NoErrorsPlugin()
-    , new html(htmlOpts)
-    ]
-  devMiddelware:
+webpackConf =
+  devtool: 'cheap-module-eval-source-map'
+  entry: '.' + path.sep + path.join 'src', 'scripts', 'app.jsx'
+  output:
+    path: path.join cwd, 'dist'
+    filename: 'app.js'
     publicPath: '/'
-    noInfo: true
+  module:
+    loaders: [babel]
+  plugins: [
+    new webpack.optimize.OccurenceOrderPlugin()
+  , new webpack.HotModuleReplacementPlugin()
+  , new webpack.NoErrorsPlugin()
+  , new htmlPlugin template: path.join 'src', 'markup', 'index.html'
+  ]
+
+# ----------------------------------------------------------
+# middleware
+# ----------------------------------------------------------
+devMiddlewareConf =
+  publicPath: '/'
+  noInfo: true
+
+# ----------------------------------------------------------
+# exports
+# ----------------------------------------------------------
+module.exports =
+  webpack: webpackConf
+  devMiddleware: devMiddlewareConf
