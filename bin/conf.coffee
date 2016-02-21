@@ -19,7 +19,10 @@ babel =
   include: path.join cwd, 'src', 'scripts'
   loader: 'babel'
   query:
-    presets: ['react', 'es2015']
+    presets: [
+      'react'
+      'es2015'
+    ]
 
 webpackConf =
   devtool: 'cheap-module-eval-source-map'
@@ -32,9 +35,9 @@ webpackConf =
     loaders: [babel]
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin()
-  , new webpack.HotModuleReplacementPlugin()
-  , new webpack.NoErrorsPlugin()
-  , new htmlPlugin template: path.join 'src', 'markup', 'index.html'
+    new webpack.HotModuleReplacementPlugin()
+    new webpack.NoErrorsPlugin()
+    new htmlPlugin template: path.join 'src', 'markup', 'index.html'
   ]
 
 # ----------------------------------------------------------
