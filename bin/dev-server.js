@@ -19,7 +19,7 @@ const bundler = webpack({
   devtool: 'cheap-module-eval-source-map'
 , entry: path.resolve(cwd, 'src', 'scripts', 'app.jsx')
 , output: {
-    path: path.join(cwd, 'dist')
+    path: publicPath
   , filename: 'app.js'
   , publicPath
   }
@@ -35,10 +35,7 @@ const bundler = webpack({
       }
     ]
   }
-, plugins :[
-  //   new webpack.optimize.OccurenceOrderPlugin()
-  // , new webpack.HotModuleReplacementPlugin()
-  // , new webpack.NoErrorsPlugin()
+, plugins: [
     new HtmlPlugin({
       template: path.join('src', 'markup', 'index.html')
     })
@@ -55,6 +52,6 @@ sync.init({
   , noInfo: true
   })
 , files: [
-    path.join(cwd, 'src, **, *')
+    path.join('src', '**', '*')
   ]
 })
