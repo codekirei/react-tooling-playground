@@ -23,7 +23,10 @@ const babel = {
 
 const webpackConf = {
   devtool: 'cheap-module-eval-source-map'
-, entry: '.' + path.sep + path.join('src', 'scripts', 'app.jsx')
+, entry: [
+    'webpack-hot-middleware/client'
+  , path.resolve(cwd, 'src', 'scripts', 'app.jsx')
+  ]
 , output: {
     path: path.join(cwd, 'dist')
   , filename: 'app.js'

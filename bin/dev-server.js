@@ -1,13 +1,13 @@
 'use strict'
 
-// modules
+// import
 //----------------------------------------------------------
 const devMiddleware = require('webpack-dev-middleware')
 const express       = require('express')
 const firstOpenPort = require('first-open-port')
-const p             = require('path')
+const hotMiddleware = require('webpack-hot-middleware')
+const path          = require('path')
 const webpack       = require('webpack')
-// hot = require 'webpack-hot-middleware'
 
 // local
 const conf = require('./conf')
@@ -17,17 +17,28 @@ const conf = require('./conf')
 const cwd = process.cwd()
 
 function serve(port) {
+
+  // instantiation
   const app = express()
   const bundler = webpack(conf.webpack)
-  app.use(devMiddleware(bundler, conf.devMiddleware))
-  app.get('/', (req, res) => res.sendFile(p.join(cwd, 'index.html')))
 
+  // middlware
+  app.use(devMiddleware(bundler, conf.devMiddleware))
+  app.use(hotMiddleware(bundler))
+
+  // routing
+  app.get('/', (req, res) => res.sendFile(path.join(cwd, 'index.html')))
+
+  // serve and handle events
   const server = app.listen(port)
   server.on('listening', () => {
-    console.log(`serving on http://localhost:${port}`)
+    console.log('serving on http://localhost:%s', port)
   })
 }
 
 firstOpenPort(3000)
   .then(serve)
-  .catch(err => console.error(err.stack))
+  .catch(err => {
+    console.error(err.stack)
+    process.exit(1)
+  })

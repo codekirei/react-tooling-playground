@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 
+if (module.hot) module.hot.accept()
+
 class App extends Component {
   render() { return (
-    <div>hello world!</div>
+    <div>
+      <input></input>
+      <div>hello world</div>
+    </div>
   )}
 }
 

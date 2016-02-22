@@ -1,4 +1,7 @@
 - hot reloading
+  - confirm state is not resetting
+  - html
+  - css
 - sourcemaps
 - browser-sync
 - inject changes to css, html? without losing state
