@@ -3,42 +3,58 @@
 // import
 //----------------------------------------------------------
 const devMiddleware = require('webpack-dev-middleware')
-const express       = require('express')
-const firstOpenPort = require('first-open-port')
-const hotMiddleware = require('webpack-hot-middleware')
-const path          = require('path')
-const webpack       = require('webpack')
+const path = require('path')
+const sync = require('browser-sync').create()
+const webpack = require('webpack')
+const HtmlPlugin = require('html-webpack-plugin')
 
-// local
-const conf = require('./conf')
-
-// logic
+// top level vars
 //----------------------------------------------------------
 const cwd = process.cwd()
+const publicPath = '/'
 
-function serve(port) {
+// webpack
+//----------------------------------------------------------
+const bundler = webpack({
+  devtool: 'cheap-module-eval-source-map'
+, entry: path.resolve(cwd, 'src', 'scripts', 'app.jsx')
+, output: {
+    path: path.join(cwd, 'dist')
+  , filename: 'app.js'
+  , publicPath
+  }
+, module: {
+    loaders: [
+      {
+        loader: 'babel'
+      , test: /\.jsx?$/
+      , include: path.join(cwd, 'src', 'scripts')
+      , query: {
+          presets: ['react', 'es2015']
+        }
+      }
+    ]
+  }
+, plugins :[
+  //   new webpack.optimize.OccurenceOrderPlugin()
+  // , new webpack.HotModuleReplacementPlugin()
+  // , new webpack.NoErrorsPlugin()
+    new HtmlPlugin({
+      template: path.join('src', 'markup', 'index.html')
+    })
+  ]
+})
 
-  // instantiation
-  const app = express()
-  const bundler = webpack(conf.webpack)
-
-  // middlware
-  app.use(devMiddleware(bundler, conf.devMiddleware))
-  app.use(hotMiddleware(bundler))
-
-  // routing
-  app.get('/', (req, res) => res.sendFile(path.join(cwd, 'index.html')))
-
-  // serve and handle events
-  const server = app.listen(port)
-  server.on('listening', () => {
-    console.log('serving on http://localhost:%s', port)
+// browser-sync
+//----------------------------------------------------------
+sync.init({
+  open: false
+, server: publicPath
+, middleware: devMiddleware(bundler, {
+    publicPath
+  , noInfo: true
   })
-}
-
-firstOpenPort(3000)
-  .then(serve)
-  .catch(err => {
-    console.error(err.stack)
-    process.exit(1)
-  })
+, files: [
+    path.join(cwd, 'src, **, *')
+  ]
+})

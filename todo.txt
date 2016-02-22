@@ -1,10 +1,6 @@
-- hot reloading
-  - confirm state is not resetting
-  - html
-  - css
+- hot reloading with gaearon/babel-plugin-react-transform when functional components are supported
+
 - sourcemaps
-- browser-sync
-- inject changes to css, html? without losing state
 - dist builds
   - pass env=production to get correct react build
   - tree shake with rollup
