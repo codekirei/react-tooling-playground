@@ -1,9 +1,10 @@
 import React from 'react'
 import { render } from 'react-dom'
+import './style.css'
 
 const App = () => (
   <div>
-    <div>hello world!</div>
+    <div className="hello">hello world!</div>
   </div>
 )
 

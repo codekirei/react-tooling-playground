@@ -1,5 +1,3 @@
-'use strict'
-
 // import
 //----------------------------------------------------------
 const devMiddleware = require('webpack-dev-middleware')
@@ -7,6 +5,7 @@ const path = require('path')
 const sync = require('browser-sync').create()
 const webpack = require('webpack')
 const HtmlPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 // top level vars
 //----------------------------------------------------------
@@ -16,42 +15,49 @@ const publicPath = '/'
 // webpack
 //----------------------------------------------------------
 const bundler = webpack({
-  devtool: 'cheap-module-eval-source-map'
-, entry: path.resolve(cwd, 'src', 'scripts', 'app.jsx')
-, output: {
-    path: publicPath
-  , filename: 'app.js'
-  , publicPath
-  }
-, module: {
+  devtool: 'source-map',
+  entry: path.resolve(cwd, 'src', 'scripts', 'app.jsx'),
+  output: {
+    path: publicPath,
+    filename: 'app.js',
+    publicPath,
+  },
+  module: {
     loaders: [
       {
-        loader: 'babel'
-      , test: /\.jsx?$/
-      , include: path.join(cwd, 'src', 'scripts')
-      , query: {
-          presets: ['react', 'es2015']
-        }
-      }
-    ]
-  }
-, plugins: [
+        test: /\.jsx?$/,
+        loader: 'babel',
+        include: path.join(cwd, 'src', 'scripts'),
+        query: {
+          presets: ['react', 'es2015'],
+        },
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('css?sourceMap'),
+      },
+    ],
+  },
+  plugins: [
     new HtmlPlugin({
-      template: path.join('src', 'markup', 'index.html')
-    })
-  ]
+      template: path.join('src', 'markup', 'index.html'),
+    }),
+    new ExtractTextPlugin('style.css', {
+      allChunks: true,
+    }),
+  ],
 })
 
 // browser-sync
 //----------------------------------------------------------
 sync.init({
-  open: false
-, server: publicPath
-, middleware: devMiddleware(bundler, {
-    publicPath
-  , noInfo: true
-  })
-, files: [
-    path.join('src', '**', '*')
-  ]
+  open: false,
+  server: publicPath,
+  middleware: devMiddleware(bundler, {
+    publicPath,
+    noInfo: true,
+  }),
+  files: [
+    path.join('src', '**', '*'),
+  ],
 })
