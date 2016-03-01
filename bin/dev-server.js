@@ -33,8 +33,8 @@ const bundler = webpack({
         },
       },
       {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('css?sourceMap'),
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract(['css?sourceMap', 'sass?sourceMap']),
       },
     ],
   },
