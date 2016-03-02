@@ -1,8 +1,6 @@
 - add js/scss linting to package.json
 
-- css
-  - multiple scss files
-  - globals
+- add testing
 
 - dist builds
   - pass env=production to get correct react build
