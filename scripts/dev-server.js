@@ -63,10 +63,3 @@ sync.init({
     path.join('src', '**', '*'),
   ],
 })
-
-// exit gracefully
-//----------------------------------------------------------
-process.on('SIGINT', () => {
-  process.stdout.write(`${EOL}server stopped. bye!`)
-  process.exit(0)
-})
