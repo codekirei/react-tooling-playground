@@ -4,8 +4,8 @@
   "description": "testing",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha",
+    "test": "mocha --opts config/mocha.opts",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- --opts config/mocha.opts",
     "report": "cat coverage/lcov.info | lcov-summary",
     "serve": "node scripts/dev-server.js"
   },
