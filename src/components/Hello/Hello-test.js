@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Hello from './Hello.jsx'
+import Hello from './Hello.js'
 
 describe('Hello component', () => {
   // shared vars
@@ -26,3 +26,4 @@ describe('Hello component', () => {
 })
 
 /* global expect:false */
+// vim: ft=javascript.jsx :

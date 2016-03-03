@@ -6,17 +6,19 @@ const sync = require('browser-sync').create()
 const webpack = require('webpack')
 const HtmlPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const os = require('os')
 
 // top level vars
 //----------------------------------------------------------
 const cwd = process.cwd()
 const publicPath = '/'
+const EOL = os.EOL
 
 // webpack
 //----------------------------------------------------------
 const bundler = webpack({
   devtool: 'source-map',
-  entry: path.resolve(cwd, 'src', 'scripts', 'app.jsx'),
+  entry: path.resolve(cwd, 'src', 'components', 'Root', 'Root'),
   output: {
     path: publicPath,
     filename: 'app.js',
@@ -25,9 +27,9 @@ const bundler = webpack({
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         loader: 'babel',
-        include: path.join(cwd, 'src', 'scripts'),
+        include: path.join(cwd, 'src'),
         query: {
           presets: ['react', 'es2015'],
         },
@@ -40,7 +42,7 @@ const bundler = webpack({
   },
   plugins: [
     new HtmlPlugin({
-      template: path.join('src', 'markup', 'index.html'),
+      template: path.join('src', 'index.html'),
     }),
     new ExtractTextPlugin('style.css', {
       allChunks: true,
@@ -60,4 +62,11 @@ sync.init({
   files: [
     path.join('src', '**', '*'),
   ],
+})
+
+// exit gracefully
+//----------------------------------------------------------
+process.on('SIGINT', () => {
+  process.stdout.write(`${EOL}server stopped. bye!`)
+  process.exit(0)
 })

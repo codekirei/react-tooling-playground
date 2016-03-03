@@ -6,3 +6,5 @@ const Hello = () => (
 )
 
 export default Hello
+
+// vim: ft=javascript.jsx :

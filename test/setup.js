@@ -1,9 +1,4 @@
-// #jsxthings
-require('babel-register')()
-require('ignore-styles')
-
-// make a DOM for Node to play with
-const jsdom = require('jsdom').jsdom
+import { jsdom } from 'jsdom'
 global.document = jsdom('')
 global.window = document.defaultView
 global.navigator = { userAgent: 'node.js' }
@@ -13,8 +8,7 @@ Object.keys(document.defaultView).forEach(prop => {
   }
 })
 
-// enable enzyme assertions
-const chai = require('chai')
-const chaiEnzyme = require('chai-enzyme')
+import chai from 'chai'
+import chaiEnzyme from 'chai-enzyme'
 chai.use(chaiEnzyme())
 global.expect = chai.expect

@@ -1,4 +1,7 @@
 - add js/scss linting to package.json
+- switch back to jsx?
+- consolidate configs into conf
+- bin -> scripts
 
 - resolve-url-loader?
 
