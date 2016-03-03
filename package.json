@@ -4,7 +4,10 @@
   "description": "testing",
   "main": "index.js",
   "scripts": {
-    "test": "make test"
+    "test": "mocha",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha",
+    "report": "cat coverage/lcov.info | lcov-summary",
+    "serve": "node scripts/dev-server.js"
   },
   "author": "",
   "license": "MIT",
