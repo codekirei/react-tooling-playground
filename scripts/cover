@@ -1,0 +1,11 @@
+#! /usr/bin/env sh
+
+cover () {
+  ISTANBUL="./node_modules/istanbul/lib/cli.js"
+  CONFIG="./config/istanbul.yml"
+  MOCHA="./node_modules/mocha/bin/_mocha"
+  OPTS="./config/mocha.opts"
+
+  ($ISTANBUL cover --config $CONFIG $MOCHA -- --opts $OPTS)
+}
+cover
