@@ -1,2 +1,5 @@
 instrumentation:
-  excludes: ['*-test.js', 'scripts/**/*.js']
+  excludes: ['*-test.*', 'scripts/**/*']
+  extensions:
+    - .js
+    - .jsx

@@ -1,4 +1,4 @@
 --compilers js:babel-register
 --require ignore-styles
 --require scripts/test-setup
---recursive src/**/*-test.js
+--recursive src/**/*-test.js?(x)
