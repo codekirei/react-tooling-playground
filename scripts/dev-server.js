@@ -6,19 +6,17 @@ const sync = require('browser-sync').create()
 const webpack = require('webpack')
 const HtmlPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const os = require('os')
 
 // top level vars
 //----------------------------------------------------------
 const cwd = process.cwd()
 const publicPath = '/'
-const EOL = os.EOL
 
 // webpack
 //----------------------------------------------------------
 const bundler = webpack({
   devtool: 'source-map',
-  entry: path.resolve(cwd, 'src', 'components', 'Root', 'Root'),
+  entry: path.resolve(cwd, 'src', 'components', 'Root', 'Root.jsx'),
   output: {
     path: publicPath,
     filename: 'app.js',
@@ -27,7 +25,7 @@ const bundler = webpack({
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         loader: 'babel',
         include: path.join(cwd, 'src'),
         query: {
