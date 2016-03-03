@@ -2,27 +2,18 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import Hello from './Hello.jsx'
 
-describe('Hello component', () => {
-  // shared vars
-  let component
+let component
 
-  // hooks
-  before(() => {
+exports['Hello component'] = {
+
+  before: () => {
     component = shallow(<Hello />)
-  })
+  },
 
-  // cases
-  it('element', () =>
-    expect(component).to.have.tagName('div')
-  )
+  element: () => expect(component).to.have.tagName('div'),
+  className: () => expect(component).to.have.className('hello'),
+  text: () => expect(component).to.have.text('hello world!'),
 
-  it('class', () =>
-    expect(component).to.have.className('hello')
-  )
-
-  it('text', () =>
-    expect(component).to.have.text('hello world!')
-  )
-})
+}
 
 /* global expect:false */

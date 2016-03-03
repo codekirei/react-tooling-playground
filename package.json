@@ -8,7 +8,8 @@
     "cover": "scripts/cover",
     "report": "cat coverage/lcov.info | lcov-summary",
     "serve": "node scripts/dev-server.js",
-    "lint:styles": "stylelint --config config/stylelint.js src/**/*.scss"
+    "lint:styles": "stylelint --config config/stylelint.js src/**/*.scss",
+    "lint:scripts": "eslint --config config/eslint.js 'src/**/*.js?(x)'"
   },
   "author": "",
   "license": "MIT",
@@ -22,6 +23,9 @@
     "chai-enzyme": "^0.4.1",
     "css-loader": "^0.23.1",
     "enzyme": "^2.0.0",
+    "eslint": "^2.2.0",
+    "eslint-config-airbnb": "^6.0.2",
+    "eslint-plugin-react": "^4.1.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.9.0",
     "ignore-styles": "^1.2.0",
