@@ -1,4 +1,4 @@
---compilers js:babel-register
+--require ./configs/babel-register
 --require ignore-styles
 --require scripts/test-setup
 --ui exports

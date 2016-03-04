@@ -2,9 +2,9 @@
 
 cover () {
   ISTANBUL="./node_modules/istanbul/lib/cli.js"
-  CONFIG="./config/istanbul.yml"
+  CONFIG="./configs/istanbul.yml"
   MOCHA="./node_modules/mocha/bin/_mocha"
-  OPTS="./config/mocha.opts"
+  OPTS="./configs/mocha.opts"
 
   ($ISTANBUL cover --config $CONFIG $MOCHA -- --opts $OPTS)
 }

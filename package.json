@@ -4,12 +4,12 @@
   "description": "testing",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --opts config/mocha.opts",
+    "test": "mocha --opts configs/mocha.opts",
     "cover": "scripts/cover",
     "report": "cat coverage/lcov.info | lcov-summary",
     "serve": "node scripts/dev-server.js",
-    "lint:styles": "stylelint --config config/stylelint.js src/**/*.scss",
-    "lint:scripts": "eslint --config config/eslint.js 'src/**/*.js?(x)'"
+    "lint:styles": "stylelint --config configs/stylelint.js src/**/*.scss",
+    "lint:scripts": "eslint --config configs/eslint.js 'src/**/*.js?(x)'"
   },
   "author": "",
   "license": "MIT",
@@ -44,11 +44,5 @@
   "dependencies": {
     "react": "^0.14.7",
     "react-dom": "^0.14.7"
-  },
-  "babel": {
-    "presets": [
-      "react",
-      "es2015"
-    ]
   }
 }
