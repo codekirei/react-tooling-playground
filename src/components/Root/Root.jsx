@@ -7,4 +7,6 @@ const Root = () => (
   <Hello />
 )
 
+export default Root
+
 render(<Root />, document.getElementById('root'))
