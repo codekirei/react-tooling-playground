@@ -12,7 +12,10 @@ exports['Hello component'] = {
 
   element: () => expect(component).to.have.tagName('div'),
   className: () => expect(component).to.have.className('hello'),
-  text: () => expect(component).to.have.text('hello world!'),
+  'text -- default': () => expect(component).to.have.text('hello world!'),
+  'text -- custom': () => {
+    expect(shallow(<Hello text="foo" />)).to.have.text('foo')
+  },
 
 }
 

@@ -7,6 +7,7 @@
     "test": "mocha --opts configs/mocha.opts",
     "cover": "scripts/cover",
     "report": "cat coverage/lcov.info | lcov-summary",
+    "serve:coverage": "scripts/serve-coverage.js",
     "serve": "node scripts/dev-server.js",
     "lint:styles": "stylelint --config configs/stylelint.js src/**/*.scss",
     "lint:scripts": "eslint --config configs/eslint.js 'src/**/*.js?(x)'"
