@@ -1,12 +1,9 @@
 import React from 'react'
-import { render } from 'react-dom'
-import './Root.scss'
 import Hello from '../Hello/Hello.jsx'
+import './Root.scss'
 
 const Root = () => (
   <Hello />
 )
 
 export default Root
-
-render(<Root />, document.getElementById('root'))

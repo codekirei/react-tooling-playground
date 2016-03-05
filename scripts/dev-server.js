@@ -16,7 +16,7 @@ const publicPath = '/'
 //----------------------------------------------------------
 const bundler = webpack({
   devtool: 'source-map',
-  entry: path.resolve(cwd, 'src', 'components', 'Root', 'Root.jsx'),
+  entry: path.resolve(cwd, 'src', 'app.jsx'),
   output: {
     path: publicPath,
     filename: 'app.js',
