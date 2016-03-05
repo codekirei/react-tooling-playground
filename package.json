@@ -31,7 +31,6 @@
     "html-webpack-plugin": "^2.9.0",
     "ignore-styles": "^1.2.0",
     "istanbul": "^1.0.0-alpha.2",
-    "jsdom": "^8.1.0",
     "lcov-summary": "^1.0.1",
     "mocha": "^2.4.5",
     "node-sass": "^3.4.2",

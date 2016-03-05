@@ -1,15 +1,17 @@
-import './Root.jsx'
+// test utils ----------------------------------------------
+
+import React from 'react'
+import { shallow } from 'enzyme'
+import chai, { expect } from 'chai'
+import chaiEnzyme from 'chai-enzyme'
+chai.use(chaiEnzyme())
+
+// test cases ----------------------------------------------
+
+import Root from './Root.jsx'
 
 exports['Root component'] = {
-
-  'bind to #root': () => {
-    expect(
-      Array.prototype.slice.call(
-        document.getElementById('root').children
-      ).length
-    ).to.be.above(0)
+  'render hello': () => {
+    expect(shallow(<Root />).shallow()).to.have.text('hello world!')
   },
-
 }
-
-/* global expect:false */
