@@ -8,9 +8,6 @@ export default bundler => ({
     middleware: [
       webpackDevMiddleware(bundler, {
         publicPath: '/',
-        stats: {
-          colors: true,
-        },
         noInfo: true,
       }),
       webpackHotMiddleware(bundler),

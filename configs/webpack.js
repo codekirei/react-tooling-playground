@@ -21,6 +21,9 @@ export default {
       test: /\.jsx?$/,
       include: path.join(cwd, 'src'),
       loader: 'babel',
+      query: {
+        cacheDirectory: true,
+      },
     },
     {
       test: /\.scss$/,
