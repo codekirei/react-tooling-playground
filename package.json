@@ -31,7 +31,6 @@
     "eslint-config-airbnb": "^6.0.2",
     "eslint-plugin-react": "^4.1.0",
     "extract-text-webpack-plugin": "^1.0.1",
-    "html-webpack-plugin": "^2.9.0",
     "ignore-styles": "^1.2.0",
     "istanbul": "^1.0.0-alpha.2",
     "lcov-summary": "^1.0.1",

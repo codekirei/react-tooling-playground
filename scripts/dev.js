@@ -11,7 +11,7 @@ const server = browserSync.create()
 server.init({
   open: false,
   server: {
-    baseDir: '/',
+    baseDir: 'src',
     middleware: [
       webpackDevMiddleware(bundler, {
         publicPath: '/',
@@ -23,4 +23,7 @@ server.init({
       webpackHotMiddleware(bundler),
     ],
   },
+  files: [
+    'src/index.html',
+  ],
 })

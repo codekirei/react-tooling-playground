@@ -1,6 +1,5 @@
 import path from 'path'
 import webpack from 'webpack'
-import HtmlPlugin from 'html-webpack-plugin'
 // import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 const cwd = process.cwd()
@@ -32,9 +31,6 @@ export default {
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new HtmlPlugin({
-      template: path.join('src', 'index.html'),
-    }),
     // new ExtractTextPlugin('style.css', {
     //   allChunks: true,
     // }),
