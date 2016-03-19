@@ -1,29 +1,10 @@
 #! node_modules/.bin/babel-node
 
-import browserSync from 'browser-sync'
 import webpack from 'webpack'
 import webpackConfig from '../configs/webpack'
-import webpackDevMiddleware from 'webpack-dev-middleware'
-import webpackHotMiddleware from 'webpack-hot-middleware'
+import browserSync from 'browser-sync'
+import browserSyncConfig from '../configs/browser-sync'
 
 const bundler = webpack(webpackConfig)
 const server = browserSync.create()
-server.init({
-  open: false,
-  server: {
-    baseDir: 'src',
-    middleware: [
-      webpackDevMiddleware(bundler, {
-        publicPath: '/',
-        stats: {
-          colors: true,
-        },
-        noInfo: true,
-      }),
-      webpackHotMiddleware(bundler),
-    ],
-  },
-  files: [
-    'src/index.html',
-  ],
-})
+server.init(browserSyncConfig(bundler))
