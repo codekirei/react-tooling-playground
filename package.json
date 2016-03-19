@@ -9,15 +9,18 @@
     "report": "cat coverage/lcov.info | lcov-summary",
     "serve:coverage": "scripts/serve-coverage.js",
     "serve": "node scripts/dev-server.js",
+    "dev": "./scripts/dev.js",
     "lint:styles": "stylelint --config configs/stylelint.js src/**/*.scss",
-    "lint:scripts": "eslint --config configs/eslint.js 'src/**/*.js?(x)'"
+    "lint:scripts": "eslint --config configs/eslint.yml 'src/**/*.js?(x)'"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "6.6.5",
     "babel-loader": "^6.2.3",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-1": "6.5.0",
     "babel-register": "^6.6.0",
     "browser-sync": "^2.11.1",
     "chai": "^3.5.0",
@@ -35,11 +38,14 @@
     "mocha": "^2.4.5",
     "node-sass": "^3.4.2",
     "react-addons-test-utils": "^0.14.7",
+    "redbox-react": "1.2.2",
     "sass-loader": "^3.1.2",
+    "style-loader": "0.13.0",
     "stylelint": "^4.4.0",
     "stylelint-config-standard": "^3.0.0",
     "webpack": "^1.12.13",
-    "webpack-dev-middleware": "^1.5.1"
+    "webpack-dev-middleware": "^1.5.1",
+    "webpack-hot-middleware": "2.10.0"
   },
   "dependencies": {
     "react": "^0.14.7",
