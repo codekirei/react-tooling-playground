@@ -5,6 +5,6 @@ import webpackConfig from '../configs/webpack'
 import browserSync from 'browser-sync'
 import browserSyncConfig from '../configs/browser-sync'
 
-const bundler = webpack(webpackConfig)
+const bundler = webpack(webpackConfig())
 const server = browserSync.create()
 server.init(browserSyncConfig(bundler))

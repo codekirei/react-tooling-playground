@@ -8,7 +8,6 @@
     "cover": "scripts/cover",
     "report": "cat coverage/lcov.info | lcov-summary",
     "serve:coverage": "scripts/serve-coverage.js",
-    "serve": "node scripts/dev-server.js",
     "dev": "./scripts/dev.js",
     "lint:styles": "stylelint --config configs/stylelint.yml src/**/*.css",
     "lint:scripts": "eslint --config configs/eslint.yml 'src/**/*.js?(x)'"

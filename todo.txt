@@ -1,13 +1,11 @@
+- add lint/test watching with chokidar-cli
 - npm-run-all
-- split out webpack conf
 
 - dist builds
   - pass env=production to get correct react build
   - uglify
-- add lint/test watching with chokidar-cli
 
 - LATER:
-  - make kire-css loader instead of using postcss at all
+  - make kirei-css loader instead of using postcss at all
     - has to work with imports
-  - https://github.com/reactjs/redux/pull/1455/files
   - tree shake with rollup
