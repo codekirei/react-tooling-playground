@@ -26,11 +26,17 @@ export default {
       },
     },
     {
-      test: /\.scss$/,
+      test: /\.css$/,
       // loader: ExtractTextPlugin.extract(['css?sourceMap', 'sass?sourceMap']),
-      loaders: ['style', 'css?sourceMap', 'sass?sourceMap'],
+      loaders: ['style', 'css?sourceMap', 'postcss'],
     },
   ] },
+  postcss: instance => [
+    require('postcss-import')({
+      addDependencyTo: instance,
+    }),
+    require('kirei-css'),
+  ],
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),

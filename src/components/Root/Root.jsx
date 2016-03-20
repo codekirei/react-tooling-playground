@@ -1,6 +1,6 @@
 import React from 'react'
 import Hello from '../Hello/Hello.jsx'
-import './Root.scss'
+import './Root.css'
 
 const Root = () => (
   <Hello />
