@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import Root from './components/root/root.jsx'
 import RedBox from 'redbox-react'
+import './styles/index.css'
 
 const rootEl = document.getElementById('root')
 const renderApp = () => render(<Root />, rootEl)

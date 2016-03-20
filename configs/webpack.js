@@ -34,7 +34,7 @@ function babelLoader(env) {
 function cssLoader(env) {
   const loader = { test: /\.css$/ }
   if (env === 'dev') loader.loaders = ['style', 'css?sourceMap', 'postcss']
-  else loader.loader = extract(['css', 'postcss'])
+  else loader.loaders = ['style/url', extract(['css', 'postcss'])]
   return loader
 }
 
