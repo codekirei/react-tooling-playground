@@ -1,9 +1,6 @@
+- fix css not applying in dist
 - add lint/test watching with chokidar-cli
 - npm-run-all
-
-- dist builds
-  - pass env=production to get correct react build
-  - uglify
 
 - LATER:
   - make kirei-css loader instead of using postcss at all

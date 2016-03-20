@@ -4,6 +4,7 @@
   "description": "testing",
   "main": "index.js",
   "scripts": {
+    "build": "./scripts/build.js",
     "test": "mocha --opts configs/mocha.opts",
     "cover": "scripts/cover",
     "report": "cat coverage/lcov.info | lcov-summary",
@@ -30,6 +31,7 @@
     "eslint-config-airbnb": "^6.0.2",
     "eslint-plugin-react": "^4.1.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "fs-extra": "0.26.7",
     "ignore-styles": "^1.2.0",
     "istanbul": "^1.0.0-alpha.2",
     "kirei-css": "0.1.0",
@@ -40,6 +42,7 @@
     "postcss-loader": "0.8.2",
     "react-addons-test-utils": "^0.14.7",
     "redbox-react": "1.2.2",
+    "rimraf": "2.5.2",
     "sass-loader": "^3.1.2",
     "style-loader": "0.13.0",
     "stylelint": "^4.4.0",
