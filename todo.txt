@@ -1,8 +1,11 @@
-- fix css not applying in dist
 - add lint/test watching with chokidar-cli
 - npm-run-all
 
 - LATER:
+  - issue:
+    - dev index.html must have script tag, mut not have style tag
+    - dist index.html injects script tag and style tag
+    - any way to use one file for both?
   - make kirei-css loader instead of using postcss at all
     - has to work with imports
   - tree shake with rollup
