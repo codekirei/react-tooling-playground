@@ -8,7 +8,7 @@ chai.use(chaiEnzyme())
 
 // test cases ----------------------------------------------
 
-import Root from './Root.jsx'
+import Root from './root.jsx'
 
 exports['Root component'] = {
   'render hello': () => {

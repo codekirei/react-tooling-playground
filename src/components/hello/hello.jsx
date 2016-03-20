@@ -1,5 +1,5 @@
 import React, { PropTypes as type } from 'react'
-import './Hello.css'
+import './hello.css'
 
 const Hello = ({ text = 'hello world!' }) => (
   <div className="hello">{ text }</div>
