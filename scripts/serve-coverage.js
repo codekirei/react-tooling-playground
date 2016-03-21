@@ -1,10 +1,11 @@
-#! /usr/bin/env node
+#! node_modules/.bin/babel-node
 
-const path = require('path')
-const sync = require('browser-sync').create()
+import path from 'path'
+import browserSync from 'browser-sync'
+
+const server = browserSync.create('coverage')
 const root = path.join('coverage', 'lcov-report')
-
-sync.init({
+server.init({
   server: root,
   open: false,
   files: [path.join(root, 'index.html')],

@@ -1,5 +1,6 @@
 - add lint/test watching with chokidar-cli
-- npm-run-all
+- minify html?
+- use static html in browser-sync?
 
 - LATER:
   - issue:
