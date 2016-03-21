@@ -1,7 +1,6 @@
 import path from 'path'
 import webpack from 'webpack'
 import ExtractTextPlugin, { extract } from 'extract-text-webpack-plugin'
-import HtmlPlugin from 'html-webpack-plugin'
 
 const cwd = process.cwd()
 
@@ -59,17 +58,12 @@ function plugins(env) {
         },
       }),
       new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.UglifyJsPlugin(),
-      new ExtractTextPlugin('style.css', { allChunks: true }),
-      new HtmlPlugin({
-        template: path.join('src', 'templates', 'index.html'),
-        inject: 'body',
-        cache: false,
-        minify: {
-          collapseWhitespace: true,
-          removeTagWhitespace: true,
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          screw_ie8: true,
         },
-      })
+      }),
+      new ExtractTextPlugin('style.css', { allChunks: true })
     )
   }
   return pluginAr
