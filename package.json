@@ -6,6 +6,7 @@
   "scripts": {
     "start": "scripts/start.js",
     "test": "mocha --opts configs/mocha.opts",
+    "test:verbose": "npm run -s test -- -R spec",
     "cover": "istanbul cover --config configs/istanbul.yml _mocha -- --opts configs/mocha.opts",
     "cover:report": "cat coverage/lcov.info | lcov-summary",
     "clean": "npm-run-all clean:*",
@@ -17,7 +18,8 @@
     "serve:build": "browser-sync start --server dist --no-open",
     "lint": "npm-run-all lint:styles lint:scripts",
     "lint:styles": "stylelint --config configs/stylelint.yml 'src/styles/**/*.css'",
-    "lint:scripts": "eslint --config configs/eslint.yml 'src/**/*.js?(x)'"
+    "lint:scripts": "eslint --config configs/eslint.yml 'src/**/*.js?(x)'",
+    "dev": "chokidar 'src/**/*.{js,jsx,html}' -c 'clear && npm-run-all lint test'"
   },
   "author": "",
   "license": "MIT",
@@ -31,6 +33,8 @@
     "browser-sync": "^2.11.1",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.4.1",
+    "chokidar-cli": "1.2.0",
+    "clear-cli": "1.0.1",
     "css-loader": "^0.23.1",
     "enzyme": "^2.0.0",
     "eslint": "^2.2.0",
@@ -44,6 +48,7 @@
     "kirei-css": "0.1.0",
     "lcov-summary": "^1.0.1",
     "mocha": "^2.4.5",
+    "mocha-tldr-reporter": "1.0.0",
     "npm-run-all": "1.6.0",
     "postcss-import": "8.0.2",
     "postcss-loader": "0.8.2",
