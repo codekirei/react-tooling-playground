@@ -10,12 +10,19 @@ import makeConfig from './webpack.config'
 import devMiddleware from 'webpack-dev-middleware'
 import hotMiddleware from 'webpack-hot-middleware'
 
-// vars
+// setup
 //---------------------------------------------------------
 const cwd = process.cwd()
 const config = makeConfig()
 const server = express()
 const bundler = webpack(config)
+
+// utilities
+//---------------------------------------------------------
+const logAndExit = err => {
+  console.error(err.stack)
+  process.exit(1)
+}
 
 // middleware
 //---------------------------------------------------------
@@ -36,13 +43,12 @@ server.get('/', (req, res) => {
 //---------------------------------------------------------
 firstOpenPort(3000, 3100)
   .then(port => {
-    server.listen(port, err => {
-      if (err) console.error(err.stack)
-      else console.info(`Listening at localhost:${port}`)
-    })
+    server
+      .listen(port, () => {
+        console.info(`dev server listening at localhost:${port}`)
+      })
+      .on('error', logAndExit)
   })
-  .catch(err => {
-    console.error('No ports available in specified range', err.stack)
-  })
+  .catch(logAndExit)
 
 /* eslint no-console: 0 */

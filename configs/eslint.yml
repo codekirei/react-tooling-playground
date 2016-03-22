@@ -1,4 +1,0 @@
-extends: airbnb
-rules:
-  semi: [2, never]
-  'react/jsx-no-bind': [2, allowArrowFunctions: true ]

@@ -1,5 +1,7 @@
+- webpack-dev-middleware use latest for waituntilvalid
 - move eslint/stylelint files to root so they can get picked up automatically
 - add simple server for coverage and build
+- solidify deps
 
 - LATER:
   - make kirei-css loader instead of using postcss at all
