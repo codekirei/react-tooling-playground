@@ -1,4 +1,5 @@
 - move eslint/stylelint files to root so they can get picked up automatically
+- add simple server for coverage and build
 
 - LATER:
   - make kirei-css loader instead of using postcss at all
