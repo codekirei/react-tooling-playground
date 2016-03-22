@@ -1,4 +1,4 @@
-- add lint/test watching with chokidar-cli
+- move eslint/stylelint files to root so they can get picked up automatically
 
 - LATER:
   - make kirei-css loader instead of using postcss at all

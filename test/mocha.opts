@@ -1,5 +1,5 @@
 --require babel-register
 --require ignore-styles
 --ui exports
---recursive src/**/*-test.js?(x)
+--recursive test/**/*.js?(x)
 --reporter mocha-tldr-reporter

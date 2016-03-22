@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "scripts/start.js",
-    "test": "mocha --opts configs/mocha.opts",
+    "test": "mocha",
     "test:verbose": "npm run -s test -- -R spec",
-    "cover": "istanbul cover --config configs/istanbul.yml _mocha -- --opts configs/mocha.opts",
+    "cover": "istanbul cover --config configs/istanbul.yml _mocha",
     "cover:report": "cat coverage/lcov.info | lcov-summary",
     "clean": "npm-run-all clean:*",
     "clean:dist": "rimraf dist",

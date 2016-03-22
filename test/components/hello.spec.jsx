@@ -8,7 +8,7 @@ chai.use(chaiEnzyme())
 
 // test cases ----------------------------------------------
 
-import Hello from './hello.jsx'
+import Hello from '../../src/components/hello.jsx'
 
 const component = shallow(<Hello />)
 

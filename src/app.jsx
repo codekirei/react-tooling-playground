@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import Root from './components/root/root.jsx'
+import Root from './components/root.jsx'
 import RedBox from 'redbox-react'
 import './styles/index.css'
 

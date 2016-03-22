@@ -1,5 +1,5 @@
 import React from 'react'
-import Hello from '../hello/hello.jsx'
+import Hello from './hello.jsx'
 
 const Root = () => (
   <Hello />
