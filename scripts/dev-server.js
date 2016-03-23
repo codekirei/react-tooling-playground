@@ -12,17 +12,21 @@ const bundler = webpack(config)
 const server = browserSync.create('dev')
 const baseDir = 'src'
 
-server.init({
-  open: false,
-  files: [path.join(baseDir, 'index.html')],
-  server: {
-    baseDir,
-    middleware: [
-      devMiddleware(bundler, {
-        publicPath: config.output.publicPath,
-        noInfo: true,
-      }),
-      hotMiddleware(bundler),
-    ],
-  },
+const devMiddlewareInstance = devMiddleware(bundler, {
+  publicPath: config.output.publicPath,
+  noInfo: true,
 })
+
+devMiddlewareInstance.waitUntilValid(() =>
+  server.init({
+    open: false,
+    files: [path.join(baseDir, 'index.html')],
+    server: {
+      baseDir,
+      middleware: [
+        devMiddlewareInstance,
+        hotMiddleware(bundler),
+      ],
+    },
+  })
+)
