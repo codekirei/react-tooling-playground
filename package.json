@@ -4,7 +4,7 @@
   "description": "testing",
   "main": "index.js",
   "scripts": {
-    "start": "./scripts/dev-server.js",
+    "start": "scripts/dev-server.js",
     "test": "mocha",
     "test:verbose": "npm run -s test -- -R spec",
     "cover": "istanbul cover --config configs/istanbul.yml _mocha",
@@ -14,7 +14,7 @@
     "clean:coverage": "rimraf coverage",
     "build": "npm-run-all clean:dist build:compile",
     "build:compile": "scripts/build.js",
-    "serve:coverage": "scripts/serve-coverage.js",
+    "serve:coverage": "scripts/coverage-server.js",
     "serve:build": "browser-sync start --server dist --no-open",
     "lint": "npm-run-all lint:styles lint:scripts",
     "lint:styles": "stylelint --config configs/stylelint.yml 'src/styles/**/*.css'",
@@ -31,6 +31,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-1": "6.5.0",
     "babel-register": "^6.6.0",
+    "browser-sync": "2.11.2",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.4.1",
     "chokidar-cli": "1.2.0",
@@ -58,7 +59,7 @@
     "stylelint": "^4.4.0",
     "stylelint-config-standard": "^3.0.0",
     "webpack": "^1.12.13",
-    "webpack-dev-middleware": "github:webpack/webpack-dev-middleware",
+    "webpack-dev-middleware": "1.5.1",
     "webpack-hot-middleware": "2.10.0"
   },
   "dependencies": {
